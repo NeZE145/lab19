@@ -20,11 +20,30 @@ string toUpperStr(string x){
     return y;
 }
 
-void importDataFromFile(){
-
+void test(string a ,vector<string> & b,vector<int> & c,vector<char> & D){
+    ifstream fin(a);
+    string textline;
+    int i=0,erase;
+    int k,l,m,grade;
+    vector<string> e;
+    vector<string> d;
+    while(getline(fin,textline)){
+        grade =0;
+        e.push_back(textline);
+        erase = e[i].find(":");
+        d.push_back(e[i].substr(erase+2,e[i].size()));
+        b.push_back(e[i].erase(erase));             
+        sscanf(d[i].c_str(),"%d %d %d",&k,&l,&m);
+        c.push_back(k+l+m);
+        D[i].pish_back(score2grade(c[i]));
+        i++; 
+    }
 }
-
-void getCommand(){
+void getCommand(string a,string b){
+    string A;
+    cout << "Please input your command: ";
+    cin >> A;
+    if(A=="EXIT"||A=="exit") a="exit";
 
 }
 
